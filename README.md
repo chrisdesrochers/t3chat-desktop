@@ -12,9 +12,9 @@ I love T3 Chat - it's honestly the best $8/month you could spend if you want to 
 
 ## Download
 
-**macOS (Apple Silicon/M-series)**: [Download T3Chat-macOS-AppleSilicon.tar.gz](REPLACE_WITH_GITHUB_DOWNLOAD_LINK)
+**macOS (Apple Silicon/M-series)**: [Download T3Chat-macOS-AppleSilicon.zip](REPLACE_WITH_GITHUB_DOWNLOAD_LINK)
 
-> **Installation**: Download, extract the tar.gz file, and drag `T3Chat.app` to your Applications folder.
+> **Installation**: Download, unzip, and drag `T3Chat.app` to your Applications folder.
 
 ## About This Project
 
