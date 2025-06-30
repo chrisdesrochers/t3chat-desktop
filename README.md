@@ -147,6 +147,12 @@ nativefier "https://t3.chat/" \
 - **Dependencies**: Standard Electron framework dependencies
 - **License**: MIT
 
+## Disclaimer
+
+**This project is not affiliated with T3 Chat or its creators.** We do not own the trademark to "T3 Chat" or any related intellectual property. This is an unofficial, community-created desktop wrapper.
+
+**No warranty expressed or implied.** This software is provided "as is" without any guarantees. Use at your own risk.
+
 ## Contributing
 
 This project is open source under the MIT License. Feel free to submit issues, feature requests, or pull requests.
