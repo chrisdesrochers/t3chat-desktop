@@ -168,7 +168,8 @@ This project is open source under the MIT License. Feel free to submit issues, f
 
 ### Google Sign-In Issues
 - **"This browser or app may not be secure"** error is common with Electron apps
-- **Workaround**: Sign in using your regular browser first, then the app should work
+- **Solution**: Use the included authentication helper (`auth-launcher.html`)
+- **Manual Workaround**: Sign in using your regular browser first, then the app should work
 - **Alternative**: Use T3 Chat's other authentication methods if available
 - This is a Google security restriction, not an issue with the app itself
 

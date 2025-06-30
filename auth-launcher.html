@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3 Chat - Authentication Helper</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 480px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background: #4285f4;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #357ae8;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        
+        .btn-secondary:hover {
+            background: #e9ecef;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: left;
+        }
+        
+        .step-number {
+            background: #4285f4;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">T3 Chat Desktop</div>
+        <div class="subtitle">Unofficial Desktop Wrapper</div>
+        
+        <h1>Welcome!</h1>
+        <p>To ensure smooth authentication with Google services, we recommend completing Google sign-in first.</p>
+        
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Authenticate with Google</strong> - Sign in to your Google account
+        </div>
+        
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Launch T3 Chat</strong> - Access T3 Chat with seamless authentication
+        </div>
+        
+        <button class="btn btn-primary" onclick="startGoogleAuth()">
+            🔐 Sign in with Google First
+        </button>
+        
+        <button class="btn btn-secondary" onclick="skipToT3Chat()">
+            Skip to T3 Chat
+        </button>
+        
+        <div class="warning">
+            <strong>Note:</strong> Skipping Google authentication may result in "browser not secure" errors when trying to sign in through T3 Chat. Pre-authenticating helps avoid these issues.
+        </div>
+    </div>
+
+    <script>
+        function startGoogleAuth() {
+            // Open Google auth in new window
+            const authWindow = window.open(
+                'https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin',
+                'googleAuth',
+                'width=500,height=600,scrollbars=yes,resizable=yes'
+            );
+            
+            // Update UI to show waiting state
+            document.querySelector('.container').innerHTML = `
+                <div class="logo">T3 Chat Desktop</div>
+                <div class="subtitle">Unofficial Desktop Wrapper</div>
+                <h1>Authenticating...</h1>
+                <p>Please complete sign-in in the popup window, then close it when finished.</p>
+                <div style="margin: 30px 0;">
+                    <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #4285f4; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                </div>
+                <button class="btn btn-secondary" onclick="proceedToT3Chat()">
+                    Continue to T3 Chat
+                </button>
+                <style>
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                </style>
+            `;
+            
+            // Monitor auth window
+            const checkClosed = setInterval(() => {
+                if (authWindow.closed) {
+                    clearInterval(checkClosed);
+                    setTimeout(() => {
+                        proceedToT3Chat();
+                    }, 1000);
+                }
+            }, 1000);
+        }
+        
+        function skipToT3Chat() {
+            proceedToT3Chat();
+        }
+        
+        function proceedToT3Chat() {
+            window.location.href = 'https://t3.chat/';
+        }
+    </script>
+</body>
+</html>
