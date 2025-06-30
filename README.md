@@ -166,6 +166,12 @@ This project is open source under the MIT License. Feel free to submit issues, f
 - Check that the app has necessary permissions
 - Try running from Terminal to see error messages
 
+### Google Sign-In Issues
+- **"This browser or app may not be secure"** error is common with Electron apps
+- **Workaround**: Sign in using your regular browser first, then the app should work
+- **Alternative**: Use T3 Chat's other authentication methods if available
+- This is a Google security restriction, not an issue with the app itself
+
 ### Raycast Integration Issues
 - Verify Raycast script directory is properly configured
 - Check that scripts have executable permissions (`chmod +x`)
