@@ -151,6 +151,8 @@ nativefier "https://t3.chat/" \
 
 **This project is not affiliated with T3 Chat or its creators.** We do not own the trademark to "T3 Chat" or any related intellectual property. This is an unofficial, community-created desktop wrapper.
 
+**Fair Use and Interoperability:** This software is created under principles of fair use and interoperability. It does not reproduce, distribute, or modify T3 Chat's proprietary code or content. Instead, it provides a desktop interface that accesses the publicly available T3 Chat web service, similar to how web browsers access websites. This falls under fair use provisions that allow for interoperability tools and does not infringe on T3 Chat's intellectual property rights.
+
 **No warranty expressed or implied.** This software is provided "as is" without any guarantees. Use at your own risk.
 
 ## Contributing
